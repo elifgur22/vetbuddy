@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_colors.dart';
-import '../home/home_screen.dart';
+import '../home/main_navigation_screen.dart';
 import 'register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -25,13 +25,13 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
-      ),
-    );
-  }
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const MainNavigationScreen(),
+    ),
+  );
+}
 
   @override
   Widget build(BuildContext context) {

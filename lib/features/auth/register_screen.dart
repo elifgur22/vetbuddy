@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_colors.dart';
-import '../home/home_screen.dart';
+import '../home/main_navigation_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -29,14 +29,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void register() {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const HomeScreen(),
-      ),
-      (route) => false,
-    );
-  }
+  Navigator.pushAndRemoveUntil(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const MainNavigationScreen(),
+    ),
+    (route) => false,
+  );
+}
 
   @override
   Widget build(BuildContext context) {
