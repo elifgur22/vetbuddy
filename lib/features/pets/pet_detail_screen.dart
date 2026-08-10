@@ -6,6 +6,9 @@ import 'models/pet.dart';
 import '../vaccinations/vaccination_list_screen.dart';
 import '../medications/medication_list_screen.dart';
 
+import '../vaccinations/vaccination_list_screen.dart';
+import '../medications/medication_list_screen.dart';
+
 class PetDetailScreen extends StatelessWidget {
   final Pet pet;
 
@@ -83,6 +86,21 @@ class PetDetailScreen extends StatelessWidget {
             icon: const Icon(Icons.vaccines_outlined),
             label: const Text('Vaccinations'),
           ),
+          const SizedBox(height: 12),
+
+          ElevatedButton.icon(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const VaccinationListScreen(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.vaccines_outlined),
+            label: const Text('Vaccinations'),
+          ),
+
           const SizedBox(height: 12),
 
           ElevatedButton.icon(
