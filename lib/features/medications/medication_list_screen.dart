@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/constants/app_colors.dart';
 import 'add_medication_screen.dart';
-import 'models/medication.dart';
+import 'medication.dart';
 
 class MedicationListScreen extends StatefulWidget {
   const MedicationListScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_colors.dart';
-import 'models/vaccination.dart';
+import 'vaccination.dart';
 
 class AddVaccinationScreen extends StatefulWidget {
   const AddVaccinationScreen({super.key});
