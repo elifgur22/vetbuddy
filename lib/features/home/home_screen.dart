@@ -14,20 +14,16 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: AppColors.background,
         title: const Text(
           'VetBuddy',
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-          ),
+          style: TextStyle(fontWeight: FontWeight.w700),
         ),
         actions: [
           IconButton(
             onPressed: () {
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const LoginScreen(),
-    ),
-  );
-},
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginScreen()),
+              );
+            },
             icon: const Icon(Icons.notifications_outlined),
           ),
         ],
@@ -37,10 +33,7 @@ class HomeScreen extends StatelessWidget {
         children: [
           const Text(
             'Hello 👋',
-            style: TextStyle(
-              fontSize: 16,
-              color: AppColors.textSecondary,
-            ),
+            style: TextStyle(fontSize: 16, color: AppColors.textSecondary),
           ),
           const SizedBox(height: 4),
           const Text(
@@ -61,11 +54,7 @@ class HomeScreen extends StatelessWidget {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
-                  Icons.pets,
-                  color: Colors.white,
-                  size: 34,
-                ),
+                Icon(Icons.pets, color: Colors.white, size: 34),
                 SizedBox(height: 18),
                 Text(
                   'Add your first pet',
@@ -78,10 +67,7 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 8),
                 Text(
                   'Create a profile to track health, weight and reminders.',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white70,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Colors.white70),
                 ),
               ],
             ),
@@ -138,24 +124,15 @@ class _QuickActionCard extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(18),
       child: Ink(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 24,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(18),
-          border: Border.all(
-            color: const Color(0xFFE2E8F0),
-          ),
+          border: Border.all(color: const Color(0xFFE2E8F0)),
         ),
         child: Column(
           children: [
-            Icon(
-              icon,
-              size: 32,
-              color: AppColors.primary,
-            ),
+            Icon(icon, size: 32, color: AppColors.primary),
             const SizedBox(height: 12),
             Text(
               title,

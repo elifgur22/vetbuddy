@@ -12,10 +12,7 @@ class SplashScreen extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 32,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: Column(
             children: [
               const Spacer(),
@@ -54,26 +51,23 @@ class SplashScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-  onPressed: () {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
-      ),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    backgroundColor: AppColors.primary,
-    foregroundColor: AppColors.white,
-  ),
-  child: const Text(
-    'Get Started',
-    style: TextStyle(
-      fontSize: 17,
-      fontWeight: FontWeight.w600,
-    ),
-  ),
-),
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: AppColors.white,
+                  ),
+                  child: const Text(
+                    'Get Started',
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
+                  ),
+                ),
               ),
             ],
           ),

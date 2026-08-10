@@ -29,14 +29,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   void register() {
-  Navigator.pushAndRemoveUntil(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const MainNavigationScreen(),
-    ),
-    (route) => false,
-  );
-}
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const MainNavigationScreen()),
+      (route) => false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,10 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           padding: const EdgeInsets.all(24),
           child: Column(
             children: [
-              Image.asset(
-                'assets/images/logo.png',
-                height: 110,
-              ),
+              Image.asset('assets/images/logo.png', height: 110),
               const SizedBox(height: 24),
               TextField(
                 controller: nameController,
@@ -104,8 +99,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
-                        obscureConfirmPassword =
-                            !obscureConfirmPassword;
+                        obscureConfirmPassword = !obscureConfirmPassword;
                       });
                     },
                     icon: Icon(
@@ -125,10 +119,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 child: const Text(
                   'Create Account',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                 ),
               ),
             ],

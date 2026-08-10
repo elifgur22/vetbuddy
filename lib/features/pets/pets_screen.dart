@@ -24,20 +24,14 @@ class PetsScreen extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(
-                color: const Color(0xFFE2E8F0),
-              ),
+              border: Border.all(color: const Color(0xFFE2E8F0)),
             ),
             child: const Row(
               children: [
                 CircleAvatar(
                   radius: 34,
                   backgroundColor: Color(0xFFE6FFFB),
-                  child: Icon(
-                    Icons.pets,
-                    size: 34,
-                    color: AppColors.primary,
-                  ),
+                  child: Icon(Icons.pets, size: 34, color: AppColors.primary),
                 ),
                 SizedBox(width: 16),
                 Expanded(
@@ -54,16 +48,12 @@ class PetsScreen extends StatelessWidget {
                       SizedBox(height: 4),
                       Text(
                         'British Longhair',
-                        style: TextStyle(
-                          color: AppColors.textSecondary,
-                        ),
+                        style: TextStyle(color: AppColors.textSecondary),
                       ),
                       SizedBox(height: 6),
                       Text(
                         '4.4 kg • Male',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: TextStyle(fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -80,9 +70,7 @@ class PetsScreen extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const AddPetScreen(),
-            ),
+            MaterialPageRoute(builder: (context) => const AddPetScreen()),
           );
         },
         icon: const Icon(Icons.add),

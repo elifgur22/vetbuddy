@@ -26,9 +26,7 @@ class _AiScreenState extends State<AiScreen> {
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('AI connection will be added soon.'),
-      ),
+      const SnackBar(content: Text('AI connection will be added soon.')),
     );
 
     messageController.clear();
@@ -75,9 +73,7 @@ class _AiScreenState extends State<AiScreen> {
                       Text(
                         'Ask general questions about your pet’s care, nutrition and wellbeing.',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: AppColors.textSecondary,
-                        ),
+                        style: TextStyle(color: AppColors.textSecondary),
                       ),
                     ],
                   ),

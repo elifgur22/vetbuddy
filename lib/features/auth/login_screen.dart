@@ -25,13 +25,11 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void login() {
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const MainNavigationScreen(),
-    ),
-  );
-}
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const MainNavigationScreen()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,19 +37,11 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 24,
-            vertical: 32,
-          ),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Image.asset(
-                  'assets/images/logo.png',
-                  height: 150,
-                ),
-              ),
+              Center(child: Image.asset('assets/images/logo.png', height: 150)),
               const SizedBox(height: 24),
               const Text(
                 'Welcome Back',
@@ -64,10 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 8),
               const Text(
                 'Sign in to continue caring for your pets.',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: AppColors.textSecondary,
-                ),
+                style: TextStyle(fontSize: 15, color: AppColors.textSecondary),
               ),
               const SizedBox(height: 32),
               TextField(
@@ -116,10 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 child: const Text(
                   'Sign In',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
                 ),
               ),
               const SizedBox(height: 20),
@@ -128,9 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Text(
                     "Don't have an account?",
-                    style: TextStyle(
-                      color: AppColors.textSecondary,
-                    ),
+                    style: TextStyle(color: AppColors.textSecondary),
                   ),
                   TextButton(
                     onPressed: () {

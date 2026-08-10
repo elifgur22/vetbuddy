@@ -21,20 +21,13 @@ class ProfileScreen extends StatelessWidget {
           const CircleAvatar(
             radius: 42,
             backgroundColor: Color(0xFFE6FFFB),
-            child: Icon(
-              Icons.person,
-              size: 42,
-              color: AppColors.primary,
-            ),
+            child: Icon(Icons.person, size: 42, color: AppColors.primary),
           ),
           const SizedBox(height: 16),
           const Center(
             child: Text(
               'Elif',
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w700,
-              ),
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
             ),
           ),
           const SizedBox(height: 28),
