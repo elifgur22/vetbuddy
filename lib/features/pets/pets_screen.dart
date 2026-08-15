@@ -5,6 +5,7 @@ import 'add_pet_screen.dart';
 import 'models/pet.dart';
 import 'pet_detail_screen.dart';
 import '../../core/utils/pet_asset_helper.dart';
+import 'services/pet_api_service.dart';
 
 class PetsScreen extends StatefulWidget {
   const PetsScreen({super.key});
@@ -14,8 +15,45 @@ class PetsScreen extends StatefulWidget {
 }
 
 class _PetsScreenState extends State<PetsScreen> {
-  final List<Pet> pets = [];
+  final PetApiService petApiService = PetApiService();
 
+  List<Pet> pets = [];
+  bool isLoading = true;
+
+  @override
+void initState() {
+  super.initState();
+  loadPets();
+} 
+
+Future<void> loadPets() async {
+  try {
+    final result = await petApiService.getPets();
+
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {
+      pets = result;
+      isLoading = false;
+    });
+  } catch (e) {
+    if (!mounted) {
+      return;
+    }
+
+    setState(() {
+      isLoading = false;
+    });
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Failed to load pets: $e'),
+      ),
+    );
+  }
+}
   Future<void> addPet() async {
     final pet = await Navigator.push<Pet>(
       context,
@@ -30,6 +68,35 @@ class _PetsScreenState extends State<PetsScreen> {
       });
     }
   }
+
+  Future<void> addPet() async {
+  final pet = await Navigator.push<Pet>(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const AddPetScreen(),
+    ),
+  );
+
+  if (pet == null) {
+    return;
+  }
+
+  try {
+    await petApiService.createPet(pet);
+
+    await loadPets();
+  } catch (e) {
+    if (!mounted) {
+      return;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Failed to save pet: $e'),
+      ),
+    );
+  }
+}
 
   void openPetDetail(Pet pet) {
     Navigator.push(
