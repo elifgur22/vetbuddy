@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_colors.dart';
-import 'medication.dart';
+import 'models/medication.dart';
 
 class AddMedicationScreen extends StatefulWidget {
   const AddMedicationScreen({super.key});
@@ -44,6 +44,27 @@ class _AddMedicationScreenState
       });
     }
   }
+
+  Future<void> editTime(int index) async {
+  final currentTime = selectedTimes[index];
+
+  final newTime = await showTimePicker(
+    context: context,
+    initialTime: currentTime,
+  );
+
+  if (newTime != null) {
+    setState(() {
+      selectedTimes[index] = newTime;
+    });
+  }
+}
+
+void removeTime(int index) {
+  setState(() {
+    selectedTimes.removeAt(index);
+  });
+}
 
   Future<void> selectEndDate() async {
     final date = await showDatePicker(
@@ -190,11 +211,30 @@ class _AddMedicationScreenState
             spacing: 8,
             runSpacing: 8,
             children: [
-              ...selectedTimes.map(
-                (time) => Chip(
-                  label: Text(time.format(context)),
+              ...selectedTimes.asMap().entries.map(
+                  (entry) {
+                    final index = entry.key;
+                    final time = entry.value;
+
+                    return InputChip(
+                      label: Text(time.format(context)),
+                      avatar: const Icon(
+                        Icons.access_time,
+                        size: 18,
+                      ),
+                      onPressed: () {
+                        editTime(index);
+                      },
+                      onDeleted: () {
+                        removeTime(index);
+                      },
+                      deleteIcon: const Icon(
+                        Icons.close,
+                        size: 18,
+                      ),
+                    );
+                  },
                 ),
-              ),
               ActionChip(
                 avatar: const Icon(Icons.add),
                 label: const Text('Add Time'),

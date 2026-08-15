@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/constants/app_colors.dart';
-import 'vaccination.dart';
+import 'models/vaccination.dart';
 
 class AddVaccinationScreen extends StatefulWidget {
   const AddVaccinationScreen({super.key});
@@ -58,6 +58,7 @@ class _AddVaccinationScreenState extends State<AddVaccinationScreen> {
       });
     }
   }
+  
 
   void saveVaccination() {
     if (nameController.text.trim().isEmpty) {
@@ -88,6 +89,7 @@ class _AddVaccinationScreenState extends State<AddVaccinationScreen> {
         '${date.month.toString().padLeft(2, '0')}.'
         '${date.year}';
   }
+  
 
   @override
   Widget build(BuildContext context) {

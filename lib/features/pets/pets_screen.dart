@@ -4,6 +4,7 @@ import '../../core/constants/app_colors.dart';
 import 'add_pet_screen.dart';
 import 'models/pet.dart';
 import 'pet_detail_screen.dart';
+import '../../core/utils/pet_asset_helper.dart';
 
 class PetsScreen extends StatefulWidget {
   const PetsScreen({super.key});
@@ -120,10 +121,19 @@ class _PetsScreenState extends State<PetsScreen> {
                           radius: 34,
                           backgroundColor:
                               AppColors.primary.withValues(alpha: 0.12),
-                          child: const Icon(
-                            Icons.pets,
-                            size: 34,
-                            color: AppColors.primary,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8),
+                            child: Image.asset(
+                              PetAssetHelper.getAsset(pet.type),
+                              fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) {
+                                return const Icon(
+                                  Icons.pets,
+                                  color: AppColors.primary,
+                                  size: 34,
+                                );
+                              },
+                            ),
                           ),
                         ),
                         const SizedBox(width: 16),
