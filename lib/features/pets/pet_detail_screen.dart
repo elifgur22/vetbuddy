@@ -89,7 +89,7 @@ class PetDetailScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const VaccinationListScreen(),
+                  builder: (context) => VaccinationListScreen(petId: pet.id!),
                 ),
               );
             },
@@ -104,7 +104,7 @@ class PetDetailScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const MedicationListScreen(),
+                  builder: (context) => MedicationListScreen(petId: pet.id!),
                 ),
               );
             },
