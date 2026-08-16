@@ -79,11 +79,13 @@ class _PetsScreenState extends State<PetsScreen> {
     }
   }
 
-  void openPetDetail(Pet pet) {
-    Navigator.push(
+  Future<void> openPetDetail(Pet pet) async {
+    await Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => PetDetailScreen(pet: pet)),
     );
+
+    await loadPets();
   }
 
   @override

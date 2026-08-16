@@ -41,4 +41,42 @@ class PetApiService {
       jsonDecode(response.body),
     );
   }
+
+  Future<Pet> updatePet(Pet pet) async {
+  final response = await http.put(
+    Uri.parse(
+      '${ApiConstants.baseUrl}/pets/${pet.id}',
+    ),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: jsonEncode(
+      pet.toJson(),
+    ),
+  );
+
+  if (response.statusCode != 200) {
+    throw Exception(
+      'Failed to update pet: ${response.body}',
+    );
+  }
+
+  return Pet.fromJson(
+    jsonDecode(response.body),
+  );
+}
+
+Future<void> deletePet(int petId) async {
+  final response = await http.delete(
+    Uri.parse(
+      '${ApiConstants.baseUrl}/pets/$petId',
+    ),
+  );
+
+  if (response.statusCode != 204) {
+    throw Exception(
+      'Failed to delete pet: ${response.body}',
+    );
+  }
+}
 }
